@@ -191,7 +191,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "stm32f4-02-neopixel"
+name = "stm32f4-03-neopixel"
 version = "0.1.0"
 dependencies = [
  "cortex-m 0.6.2 (registry+https://github.com/rust-lang/crates.io-index)",
