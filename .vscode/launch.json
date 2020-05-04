@@ -8,7 +8,7 @@
             "request": "launch",
             "servertype": "openocd",
             "cwd": "${workspaceRoot}",
-            "executable": "./target/thumbv7m-none-eabi/debug/${workspaceFolderBasename}",
+            "executable": "./target/thumbv7em-none-eabihf/debug/${workspaceFolderBasename}",
             
             
             "configFiles": [
@@ -27,6 +27,33 @@
                     { "type": "console", "label": "ITM", "port": 0 }
                 ]
             }*/            
-        }
+        },
+        {
+            "name": "Release (OpenOCD)",
+            "device": "STM32F411CEU6",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "./target/thumbv7em-none-eabihf/release/${workspaceFolderBasename}",
+            
+            
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f4x.cfg"
+            ],
+            "runToMain": false,
+            "svdFile": "${workspaceRoot}/.vscode/STM32F411.svd"
+            /*--??used for itm debugging, but not possible with unmodified st-link
+            "swoConfig": {
+                "enabled": true,
+                "cpuFrequency": 8000000,
+                "swoFrequency": 2000000,
+                "source": "probe",
+                "decoders": [
+                    { "type": "console", "label": "ITM", "port": 0 }
+                ]
+            }*/            
+        }        
     ]
 }
