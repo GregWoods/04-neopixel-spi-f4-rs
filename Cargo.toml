@@ -1,5 +1,5 @@
 [package]
-name = "stm32f4-01-blink"
+name = "stm32f4-02-neopixel"
 version = "0.1.0"
 authors = ["Greg Woods <gregwoodslancs@gmail.com>"]
 edition = "2018"
@@ -16,11 +16,26 @@ cortex-m-semihosting = "*"
 panic-halt = "*"
 
 smart-leds = "*"
-ws2812-spi = "*"
-ws2812-timer-delay = {version = "*", features = ["slow"]}
-apa102-spi = "*"
+# ws2812-spi = "*"
+
+[dependencies.ws2812-timer-delay]
+git = "https://github.com/jacobrosenthal/ws2812-timer-delay-rs.git"
+branch = "clarify-timings"
+#path = "../ws2812-timer-delay-rs"
+version = "*"
+features = []
+
+
+# apa102-spi = "*"
 
 
 [dependencies.stm32f4xx-hal]
 version = "*"
 features = ["rt", "stm32f411"]
+
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
