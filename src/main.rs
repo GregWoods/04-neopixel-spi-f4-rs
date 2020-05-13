@@ -199,7 +199,7 @@ fn main() -> ! {
             b: 0xEE,
         };                      
 
-        //hprintln!("Pre-ws2812 write").unwrap();
+        hprintln!("Pre-ws2812 write").unwrap();
 
         //loop to keep retrying if spi overflow error
         //nb::Error::Other(Error::Overrun)
