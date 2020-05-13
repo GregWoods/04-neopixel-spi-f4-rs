@@ -16,7 +16,7 @@
                 "target/stm32f4x.cfg"
             ],
             "runToMain": true,
-            "svdFile": "${workspaceRoot}/.vscode/STM32F411.svd"
+            "svdFile": "${workspaceRoot}/.vscode/STM32F411.svd",
             /*--??used for itm debugging, but not possible with unmodified st-link
             "swoConfig": {
                 "enabled": true,
@@ -26,7 +26,10 @@
                 "decoders": [
                     { "type": "console", "label": "ITM", "port": 0 }
                 ]
-            }*/            
+            },*/
+            "postLaunchCommands": [
+                "monitor arm semihosting enable"
+            ]
         },
         {
             "name": "Release (OpenOCD)",
@@ -43,7 +46,7 @@
                 "target/stm32f4x.cfg"
             ],
             "runToMain": false,
-            "svdFile": "${workspaceRoot}/.vscode/STM32F411.svd"
+            "svdFile": "${workspaceRoot}/.vscode/STM32F411.svd",
             /*--??used for itm debugging, but not possible with unmodified st-link
             "swoConfig": {
                 "enabled": true,
@@ -53,7 +56,10 @@
                 "decoders": [
                     { "type": "console", "label": "ITM", "port": 0 }
                 ]
-            }*/            
+            },*/   
+            "postLaunchCommands": [
+                "monitor arm semihosting enable"
+            ]                     
         }        
     ]
 }
