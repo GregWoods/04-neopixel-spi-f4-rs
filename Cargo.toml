@@ -14,7 +14,7 @@ cortex-m-rt = "*"
 cortex-m-semihosting = "*"
 # Panic behaviour, see https://crates.io/keywords/panic-impl for alternatives
 panic-halt = "*"
-panic-semihosting = "*"
+
 
 smart-leds = "*"
 ws2812-spi = "*"
@@ -32,25 +32,3 @@ features = ["rt", "stm32f411"]
 #  https://doc.rust-lang.org/cargo/reference/profiles.html
 #  Test and bench profile not currently used by me
 
-[profile.dev]
-opt-level = 3
-debug = true
-debug-assertions = true
-overflow-checks = true
-lto = false
-panic = 'unwind'    # or 'abort'
-incremental = true
-codegen-units = 16  # Note: ignored because `incremental` is enabled.
-rpath = false
-
-
-[profile.release]
-opt-level = 3
-debug = false
-debug-assertions = false
-overflow-checks = false
-lto = false
-panic = 'unwind'    # or 'abort'
-incremental = false # false is needed to allow codegen-units = 1
-codegen-units = 1   # default was 16. Changed to 1 to allow creating a single disassembly file using -- --emit asm
-rpath = false
